@@ -46,9 +46,8 @@ const Details = () => {
                   <th scope="col">Age</th>
                   <th scope="col">Gender</th>
                   <th scope="col">Posts</th>
-                  {/* <th scope="col">image</th> */}
+                  <th scope="col">image</th>
                   <th scope="col">Delete</th>
-                  {/* <th scope="col">Edit</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -63,7 +62,7 @@ const Details = () => {
                           <td>{user.age}</td>
                           <td>{user.gender}</td>
                           <td>{user.posts}</td>
-                          {/* <td><img src={} alt="profile" /></td> */}
+                          <td><img src={user.progress} style={{width: '40%', height: '30%'}} alt="profile" /></td>
                           <td>
                             <button
                               className="btn bg-danger text-white"
@@ -74,7 +73,6 @@ const Details = () => {
                               Delete
                             </button>
                           </td>
-                          {/* <td><Link className="btn bg-secondary text-white" to={`/update/${user.id}`}>Edit</Link></td> */}
                         </tr>
                       </>
                     );
