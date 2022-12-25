@@ -49,6 +49,7 @@ signInWithPopup(auth, provider)
     // The signed-in user info.
     const user = result.user;
     navigate('/hero')
+    toast('LogIn SuccessFully!')
     // ...
   }).catch((error) => {
     // Handle Errors here.

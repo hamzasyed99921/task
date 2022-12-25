@@ -62,7 +62,7 @@ const Details = () => {
                           <td>{user.age}</td>
                           <td>{user.gender}</td>
                           <td>{user.posts}</td>
-                          <td><img src={user.progress} style={{width: '40%', height: '30%'}} alt="profile" /></td>
+                          <td><img src={user.image} style={{width: '60%', height: '50%'}} alt="profile" /></td>
                           <td>
                             <button
                               className="btn bg-danger text-white"

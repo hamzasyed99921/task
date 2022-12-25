@@ -20,9 +20,9 @@ const Hero = () => {
   const [ImageUpload, setImageUpload] = useState(null);
   const navigate = useNavigate();
   const [fileUrl, setFileUrl] = useState(null);
-const [progress, setprogress] = useState(0);
+const [image, setImage] = useState('');
 
-console.log(fileUrl);
+console.log(image);
 
   // useEffect(() => {
   //   let authToken = sessionStorage.getItem('auth');
@@ -49,7 +49,7 @@ console.log(fileUrl);
       posts,
       friends,
       gender,
-      progress,
+      image,
       age
       
     },setAge(''),setEmail('') , setFriends(''),setGender(''),setPosts(''));
@@ -95,7 +95,7 @@ uploadTask.on('state_changed',
     // Upload completed successfully, now we can get the download URL
     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
       console.log('File available at', downloadURL);
-      setprogress(downloadURL)
+      setImage(downloadURL)
     });
   }
 );
@@ -147,22 +147,6 @@ uploadTask.on('state_changed',
                   <label className='mt-3'>Upload Profile:</label>
                 <input type="file" 
                   className="form-control"onChange={(e) => {setFileUrl(e.target.files[0]);}} />
-                    {/* <label>
-                {progress < 1 ? (
-                  <>
-                    <input
-                      type='file'
-                      id='input-file'
-                      className='form-control '
-                      onChange={(e) => {setFileUrl(e.target.files[0])}}
-                    />
-                    <FaCamera size={30} /> <br />
-                    <progress value={progress} max='100' />
-                  </>
-                ) : (
-                  <img src={fileUrl} alt='...' />
-                )}
-              </label> */}
                 <button
                   className="btn bg-primary text-white batn mt-4 w-100"
                   onClick={userDetails}
