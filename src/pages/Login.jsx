@@ -10,23 +10,46 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const provider = new GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+//   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 
   const authenticate = getAuth();
-  authenticate.languageCode = 'it';
+//   authenticate.languageCode = 'it';
 
-  const signInWithGoolge = (e) => {
-    e.preventDefault();
-    signInWithPopup(authenticate, provider)
+//   const signInWithGoolge = (e) => {
+//     e.preventDefault();
+//     signInWithPopup(authenticate, provider)
+//   .then((result) => {
+//     // This gives you a Google Access Token. You can use it to access the Google API.
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+//     // The signed-in user info.
+//     const user = result.user;
+//     sessionStorage.setItem("auth", result._tokenResponse.refreshToken);
+//       navigate('/hero');
+//       toast('LogIn SuccessFully!')
+//   }).catch((error) => {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // The email of the user's account used.
+//     const email = error.customData.email;
+//     // The AuthCredential type that was used.
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//     // ...
+//   });
+//   }
+
+function continueWithGoogle(){
+    const auth = getAuth();
+signInWithPopup(auth, provider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
-    sessionStorage.setItem("auth", result._tokenResponse.refreshToken);
-      navigate('/hero');
-      toast('LogIn SuccessFully!')
+    navigate('/hero')
+    // ...
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -37,7 +60,7 @@ const Login = () => {
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
-  }
+}
   
   const signInUser = (e) => {
     e.preventDefault();
@@ -95,7 +118,9 @@ const Login = () => {
                 </button>
                 <button
                   className="btn bg-primary text-white batn mt-4 w-100"
-                  onClick={signInWithGoolge}
+                //   onClick={signInWithGoolge}
+                onClick={continueWithGoogle}
+                  type='button'
                 >
                   Sign In With Google
                 </button>

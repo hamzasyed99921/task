@@ -24,14 +24,14 @@ const [progress, setprogress] = useState(0);
 
 console.log(fileUrl);
 
-  useEffect(() => {
-    let authToken = sessionStorage.getItem('auth');
-    if(authToken){
-      navigate('/hero')
-    }if(!authToken){
-      navigate('/')
-    }
-  }, [])
+  // useEffect(() => {
+  //   let authToken = sessionStorage.getItem('auth');
+  //   if(authToken){
+  //     navigate('/hero')
+  //   }if(!authToken){
+  //     navigate('/')
+  //   }
+  // }, [])
 
   const logout = ( ) => {
     sessionStorage.removeItem('auth');
